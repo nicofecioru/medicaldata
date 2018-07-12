@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Diagnostic</title>
+</head>
+<div layout:fragment="page_content" class="col-6 mx-auto">
+    <h1>Adauga Diagnostic</h1>
+    <form th:action="@{/doctor/diagnostic/{id}(id=${idAnaliza})}" th:object="${diagnostic}" method="post">
+        <div class="form-group">
+            <label>Descriere:</label>
+            <textarea th:field="*{descriere}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Tip:</label>
+            <select th:field="*{tip}" class="form-control">
+                <option value="sanatos">Sanatos</option>
+                <option value="blonav">Bolnav</option>
+                <option value="grav bolnav">Grav Bolnav</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Salveaza</button>
+    </form>
+</div>
+</html>

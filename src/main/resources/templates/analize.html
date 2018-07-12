@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Analize</title>
+</head>
+
+<div layout:fragment="page_content" class="col-12">
+    <h2>Lista de analize pentru <span th:text="${patient}"/></h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tip</th>
+                <th>Cadru Medical</th>
+                <th>Fisier</th>
+                <th>Diagnostic</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="analiza : ${list}">
+                <td th:text="${analiza.id}"/>
+                <td th:text="${analiza.tip}"/>
+                <td th:text="${analiza.cadruMedical}"/>
+                <td><a th:href="@{download/{id}(id=${analiza.id}, idPacient=${analiza.pacient.id})}" th:text="${analiza.fisier}" target="_blank" /></td>
+                <td>
+                    <p th:if="${diagnosticRepo.findFirstByAnalizaOrderByIdDesc(analiza)}">
+                        <span th:text="${diagnosticRepo.findFirstByAnalizaOrderByIdDesc(analiza).descriere}"/>
+                    </p>
+                </td>
+                <td th:if="${user.rol} == 'doctor'">
+                    <a th:href="@{/doctor/diagnostic/{id}(id=${analiza.id})}">
+                        Adauga Diagnostic
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</html>

@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Adauga analiza</title>
+</head>
+
+<div layout:fragment="page_content" class="col-6 mx-auto">
+    <h2>Adauga analiza</h2>
+
+    <form method="POST" action="/lab/upload" enctype="multipart/form-data">
+        <input type="file" name="file" /><br/><br/>
+        <div class="form-group">
+            <label>CNP:</label>
+            <input type="text" name="cnp" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Tip:</label>
+            <select name="tip" class="form-control">
+                <option value="sange">Sange</option>
+                <option value="radiografie">Radiografie</option>
+                <option value="ecografie">Ecografie</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Salveaza</button>
+    </form>
+</div>
+</html>

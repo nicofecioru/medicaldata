@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: classworlds:classworlds:1.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/classworlds/classworlds/1.1/60c708f55deeb7c5dfce8a7886ef09cbc1388eca/classworlds-1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/classworlds/classworlds/1.1/44673eb402d35a91bee8ea1ce7d318c016e3e63e/classworlds-1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

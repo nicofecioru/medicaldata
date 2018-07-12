@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Asociaza pacient cu medic</title>
+</head>
+
+<th:block layout:fragment="menu">
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/addUser">Adauga Utilizator</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="/admin/addPatient">Adauga Pacient <span class="sr-only">(current)</span></a>
+    </li>
+</th:block>
+
+<div layout:fragment="page_content" class="col-6 mx-auto">
+    <h2>Asociaza un pacient cu un medic</h2>
+    <form action="#" th:action="@{/admin/addPatient}" th:object="${pacientMedic}" method="post">
+        <div class="form-group">
+            <label>Doctor:</label>
+            <select th:field="*{medic}" class="form-control">
+                <option th:each="medic : ${medici}"
+                        th:value="${medic.id}"
+                        th:utext="${medic}"/>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>CNP:</label>
+            <input type="text" name="cnp" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Salveaza</button>
+    </form>
+</div>
+</html>

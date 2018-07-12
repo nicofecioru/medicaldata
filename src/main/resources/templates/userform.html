@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Adauga Utilizator</title>
+</head>
+
+<th:block layout:fragment="menu">
+    <li class="nav-item active">
+        <a class="nav-link" href="/admin/addUser">Adauga Utilizator  <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/addPatient">Adauga Pacient</a>
+    </li>
+</th:block>
+
+<div layout:fragment="page_content" class="col-6 mx-auto">
+    <h2>Adauga Utilizator</h2>
+    <form action="#" th:action="@{/admin/addUser}" th:object="${user}" method="post">
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" th:field="*{email}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Parola:</label>
+            <input type="password" th:field="*{parola}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Nume:</label>
+            <input type="text" th:field="*{nume}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Prenume:</label>
+            <input type="text" th:field="*{prenume}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>CNP:</label>
+            <input type="text" th:field="*{cnp}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Telefon:</label>
+            <input type="tel" th:field="*{telefon}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Rol</label>
+            <select th:field="*{rol}" class="form-controle">
+                <option value="pacient">Pacient</option>
+                <option value="doctor">Doctor</option>
+                <option value="lab">Laborant</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Salveaza</button>
+    </form>
+</div>
+</html>
